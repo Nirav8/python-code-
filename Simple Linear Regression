@@ -1,0 +1,30 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = [2, 3, 1, 2, 1, 3, 2, 1]
+y = [5, 8, 4, 6, 4, 9, 7, 3]
+
+
+def sum(a):
+    temp = 0
+    for i in a:
+        temp = temp + i
+    return temp
+
+
+(X, Y) = (np.mean(x), np.mean(y))
+
+m = (sum((x - np.mean(x)) * (y - np.mean(y)))) / sum((x - np.mean(x)) ** 2)
+c = Y - m * X
+
+plt.scatter(x, y)
+plt.scatter(X, Y)
+plt.plot((0, X), (c, Y))
+
+plt.show()
+
+f = 2.5
+
+y = m * f + c
+
+print(y)
